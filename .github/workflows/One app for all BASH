@@ -1,0 +1,9 @@
+mkdir forgeone-live && cd forgeone-live
+curl -LO "https://chat.openai.com/mnt/data/forgeone_live_site.zip"
+unzip forgeone_live_site.zip && rm forgeone_live_site.zip
+
+git init
+git add index.html
+git commit -m "Initial commit – ForgeOne Live"
+gh auth login    # Follow prompts to use your PAT securely
+gh repo create forgeone-live --public --source=. --remote=origin --push
