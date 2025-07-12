@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ForgeOne Live Prototype</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+        header { background: #222; color: #fff; padding: 1em; text-align: center; }
+        main { padding: 2em; }
+        .prompt-box, .result-box { margin-top: 20px; padding: 1em; background: white; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+        button { margin-top: 10px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .app-preview { margin-top: 20px; background: #eee; padding: 1em; border-radius: 6px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ForgeOne: Live Prototype</h1>
+    </header>
+    <main>
+        <div class="prompt-box">
+            <label for="prompt">Describe your app idea:</label><br>
+            <textarea id="prompt" rows="4" cols="50" placeholder="Example: I want a budget tracker for freelancers..."></textarea><br>
+            <button onclick="generateApp()">Build App</button>
+        </div>
+        <div class="result-box">
+            <h3>Generated App Preview</h3>
+            <div id="app-preview" class="app-preview">
+                Your generated app preview will appear here.
+            </div>
+        </div>
+    </main>
+    <script>
+        function generateApp() {
+            const prompt = document.getElementById("prompt").value;
+            const preview = document.getElementById("app-preview");
+            if (prompt.trim() === "") {
+                preview.innerHTML = "<em>Please enter a prompt to generate an app.</em>";
+            } else {
+                preview.innerHTML = `<strong>App Idea:</strong> ${prompt}<br><br>
+                <strong>Features:</strong><ul>
+                    <li>Auto-generated UI with AI</li>
+                    <li>Real-time preview and edits</li>
+                    <li>Export to GitHub or deploy live</li>
+                </ul>
+                <button onclick="alert('App exported to GitHub (simulated).')">Export App</button>`;
+            }
+        }
+    </script>
+</body>
+</html>
